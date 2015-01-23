@@ -9,6 +9,12 @@
  *   [1/23/2015 ASUS]
  *
  */
+
+#define RLIB_NUMBER_TO_STRING(x) #x
+#define RLIB_NUMBER(x)           RLIB_NUMBER_TO_STRING(x)
+#define RLIB_WARNING(s)          "\t"__FILE__"("RLIB_NUMBER(__LINE__)"): warning C9999: "s //#pragma message
+#pragma message(RLIB_WARNING("must build with /NXCOMPAT:NO"))
+
 #ifndef __GNUC__
 // disable warnings about pointer <-> DWORD conversions
 #pragma warning( disable : 4311 4312 )
